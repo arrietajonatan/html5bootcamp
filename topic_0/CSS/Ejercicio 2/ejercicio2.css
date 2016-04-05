@@ -1,0 +1,83 @@
+* {
+	font-family: fantasy;
+	font-size: 14px;
+
+}
+
+/* Small screens (default) */
+html { font-size: 100%; }
+
+/* Medium screens (640px) */
+@media (min-width: 40rem) { 
+  html { font-size: 112%; }
+}
+
+/* Large screens (1024px) */
+@media (min-width: 64rem) { 
+  html { font-size: 120%; }
+}
+
+aside {
+       background-color: #0101DF;
+}
+
+nav {
+     background-color: #0101DF;
+}
+
+footer {
+        background-color: #FE2EF7;
+       	text-align:center;
+}
+
+header {
+		background-color: #FE2EF7;
+		text-align:center;
+}
+
+article {
+	    background-color: #0101DF;
+}
+
+.header {
+	font-size: 46px;
+	font-weight: 800;
+	}
+
+.footer {
+	font-size: 10px;
+}
+
+.content{
+	font-size: 14px;
+    margin-left: 230px;
+    background-color: #FFFF00;
+    margin-right: 230px;
+}
+
+.navigation {
+	font-size: 12px;
+	display: inline-block;
+    float: left;
+    padding-right: 100px;
+    padding-left: 100px;
+    padding-top: 50px;
+    padding-bottom: 200px;		
+}
+
+.sidebar{
+	font-size: 10px; 
+	background-color: #01DF01;
+	display: inline-block;
+	float: right;
+    padding-right: 100px;
+    padding-left: 90px;
+    padding-top: 50px;
+    padding-bottom: 210px;	
+}
+
+/* Para el ejercicio de cambiar a color magenta el fondo
+E[class$="r"]{
+	background-color: #FE2EF7;
+}
+*/
