@@ -2,3 +2,7 @@ section {
 	text-align: center;
 	visibility: hidden;
 }
+
+.error{
+	background-color: #FF0000;
+}

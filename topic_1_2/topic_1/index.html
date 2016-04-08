@@ -4,17 +4,23 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="javascript.js"></script>
     <title>Excercise1</title>
   </head>
 
   <body>
   		<section id="exercise1">
-  			  <h1>Hello World</h1>
+  			  <h1>Hello World! Joni is here!</h1>
   		</section>
 
-        <input type="submit"  value="Submit" />
+      <div id="ajax">
+
+      </div>
+
+      <input type="submit" id="submit" onClick="returnFunction()" value="Submit" />
+      <input type="text" id="link" value=""/>
+      <input type="button" onClick="ajaxCall()" value="Link"/>
 
   </body>
 
