@@ -9,14 +9,14 @@
     <title>Topic 2</title>
   </head>
 
-  <body>
+  <body background="media/background.jpg">
   	<h1>My favourite Movies</h1>
 
   	<input type="button" id="myMovies" value="My top 5 movies">
 
   	<section id="botones" class="hidden">
 
-  		<input type="button" id="movie1" value="The immposible">
+  		<input type="button" id="movie1" value="The impossible">
   		<input type="button" id="movie2" value="The day after tomorrow">
   		<input type="button" id="movie3" value="The pianist">
   		<input type="button" id="movie4" value="The hunger games">
@@ -27,24 +27,66 @@
   	<div id="datos">
 
   	</div>
+
   	<div id="impo" class="hidden">
   		<img src="media/impo.jpg">
+  		<input type="button" id="bPlay1"class="boton"onClick="movie.play()" value="Play">
+  		<input class="boton" type="button" onClick="movie.resume()" value="Resume">
+  		<input class="boton" type="button" onClick="movie.pause()"value="Pause">
+  		<p class="boton">Name of your friend: </p>
+  		<input type="text" id="friendName" value="" >
+  		<input class="boton" type="button" id="bLike1" onClick="social.like()" value="Like">
+  		<input class="boton" type="button" id="bShare1" onClick="social.share()" value="Share">
+
   	</div>
 
   	<div id="day" class="hidden">
   		<img src="media/day.jpg">
+  		<input  type="button" id="bPlay2"class="boton" onClick="movie.play()" value="Play">
+  		<input class="boton" type="button" onClick="movie.resume()" value="Resume">
+  		<input class="boton" type="button" onClick="movie.pause()" value="Pause">
+  		<p class="boton">Name of your friend: </p>
+  		<input type="text" id="friendName" value="" >
+  		<input class="boton" type="button" id="bLike2" onClick="social.like()"  value="Like">
+  		<input class="boton" type="button" id="bShare2" onClick="social.share()" value="Share">
   	</div>
 
   	<div id="piano" class="hidden">
   		<img src="media/piano.jpg">
+  		<input  type="button" id="bPlay3" class="boton" onClick="movie.play()" value="Play">
+  		<input class="boton" type="button" onClick="movie.resume()" value="Resume">
+  		<input class="boton" type="button" onClick="movie.pause()" value="Pause">
+  		<p class="boton">Name of your friend: </p>
+  		<input type="text" id="friendName" value="" >
+  		<input class="boton" type="button" id="bLike3" onClick="social.like()"  value="Like">
+  		<input class="boton" type="button" id="bShare3" onClick="social.share()" value="Share">
+
   	</div>
 
   	<div id="thg" class="hidden">
   		<img src="media/thg.jpg">
+  		<input type="button" id="bPlay4" class="boton" onClick="movie.play()" value="Play">
+  		<input class="boton" type="button" onClick="movie.resume()" value="Resume">
+  		<input class="boton" type="button" onClick="movie.pause()" value="Pause">
+  		<p class="boton">Name of your friend: </p>
+  		<input type="text" id="friendName" value="" >
+  		<input class="boton" type="button" id="bLike4" onClick="social.like()" value="Like">
+  		<input class="boton" type="button" id="bShare4" onClick="social.share()" value="Share">
   	</div>
 
   	<div id="snip" class="hidden">
   		<img src="media/snip.jpg">
+  		<input type="button" id="bPlay5" class="boton" onClick="movie.play()" value="Play">
+  		<input class="boton" type="button" onClick="movie.resume()" value="Resume">
+  		<input class="boton" type="button" onClick="movie.pause()" value="Pause">
+  		<p class="boton">Name of your friend: </p>
+  		<input type="text" id="friendName" value="" >
+  		<input class="boton" type="button" id="bLike5" onClick="social.like()" value="Like">
+  		<input class="boton" type="button" id="bShare5" onClick="social.share()" value="Share">
+  	</div>
+
+  	<div id="friend">
+
   	</div>
 
   </body>
