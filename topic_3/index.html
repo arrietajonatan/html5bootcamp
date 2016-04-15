@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="myApp">
+
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.29/angular.min.js"></script>
+    <script src="javascript.js"></script>
+    <title>Topic 3</title>
+  </head>
+
+<body>
+
+<div ng-controller="maintController">
+	  <h1>My favourite movies</h1>
+         <ul>
+            <li ng-repeat="movies in movie">
+               {{movie.datos}}
+            </li>
+         </ul>
+
+</body>
+
