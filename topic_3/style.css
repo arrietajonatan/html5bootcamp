@@ -1,0 +1,11 @@
+select{
+	padding-right: 50%;
+}
+
+.hidden {
+	visibility: hidden;
+}
+
+.visible {
+	visibility: visible;
+}

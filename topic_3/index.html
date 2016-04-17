@@ -14,35 +14,39 @@
 <body ng-controller="maintController">
 	  <h1>My favourite movies</h1>
 
-         <ul>
-            <li ng-repeat="movie in movies">
-               <strong>{{movie.name}}</strong><br> Year: {{movie.year}}<br> Duration: {{movie.duration}}<br> Genre: {{movie.genre}}<br>
-            </li>
-         </ul>
+   <select ng-model="selectedMovie" ng-options="movie.name for movie in movies">
+    </select>
 
-    <form ng-submit="addMovie()">
-      <input type="text" ng-model="newMovie.name">
-      <input type="text" ng-model="newMovie.year">
-      <input type="text" ng-model="newMovie.duration">
-      <input type="text" ng-model="newMovie.genre">
-      <input type="submit" value="Add Movie">
-    </form>
+    <div>
+    <h1>You selected: {{selectedMovie.name}} </h1>
+    <h2>Genre: {{selectedMovie.genre}}</h2>
+    <h3>Year: {{selectedMovie.year}}</h3>
+    <h3>Duration: {{selectedMovie.duration}}</h3>
+     <input type="button" value="Delete" ng-click="deleteMovie(selectedMovie)" />
+     <input type="button" value="Edit" ng-click="toggle()" />
+     <input type="button" value="Add new" ng-click="toggleI()" />
+     <section ng-show="edit">
+      <p>Add the new data</p><br>
+   <!--   <p>Name: </p><input type="text" ng-model="edit(selectedMovie.name)"><br>
+      <p>Genre:</p><input type="text" ng-model="edit(selectedMovie.genre)"><br>
+      <p>Year: </p><input type="text" ng-model="edit(selectedMovie.year)"><br>
+      <p>Duration</p><input type="text" ng-model="edit(selectedMovie.duration)"><br>
+    -->
+     </section>
+
+       <form ng-submit="addMovie()" ng-show="add">
+        <p>Create the new movie</p><br>
+        <p>Name: </p><input type="text" ng-model="newMovie.name"><br>
+        <p>Genre:</p><input type="text" ng-model="newMovie.genre"><br>
+        <p>Year: </p><input type="text" ng-model="newMovie.year"><br>
+        <p>Duration</p><input type="text" ng-model="newMovie.duration"><br>
+        <input type="submit" value="Add Movie">
+      </form>
+    </div>  
+
+
+
 
 </body>
 
 
-<!-- <body ng-controller="maintController">
-    <h1>My favourite movies</h1>
-        <input type="text" ng-model="newMovie.name"><br>
-        <input type="text" ng-model="newMovie.year"><br>
-        <input type="text" ng-model="newMovie.duration"><br>
-        <input type="text" ng-model="newMovie.genre"><br>
-        <button ng-click="addMovie()">Add Movie</button>
-         <ul>
-            <li ng-repeat="movie in movies">
-               <strong>{{movie.name}}</strong><br> Year: {{movie.year}}<br> Duration: {{movie.duration}}<br> Genre: {{movie.genre}}<br>
-            </li>
-         </ul>
-
-</body>
--->
