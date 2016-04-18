@@ -4,50 +4,57 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.29/angular.min.js"></script>
     <script src="javascript.js"></script>
     <script src="angular-local-storage.min.js"></script>
-    <title>Final Proyect</title>
+    <title>Final Project</title>
   </head>
 
-<body ng-controller="maintController">
+<body ng-controller="maintController"  background="media/cinema.jpeg">
 	  <h1>My favourite movies</h1>
 
    <select ng-model="selectedMovie" ng-options="movie.name for movie in movies" ng-click="showSelected()">
     </select>
 
     <div ng-show="selected">
-    <h1>You selected: {{selectedMovie.name}} </h1>
-    <h2>Genre: {{selectedMovie.genre}}</h2>
-    <h3>Year: {{selectedMovie.year}}</h3>
-    <h3>Duration: {{selectedMovie.duration}}</h3>
-     <input type="button" value="Delete" ng-disabled="!selectedMovie" ng-click="deleteMovie(selectedMovie)" />
-     <input type="button" value="Edit" ng-disabled="!selectedMovie" ng-click="toggle()" />
-     <input type="button" value="Add new" ng-click="toggleI()" />
 
-        <form ng-submit="editMovie(selectedMovie)" ng-show="edit">
+        <form class="show">
+        <h2>You selected: {{selectedMovie.name}} </h2>
+        <h3>Genre: {{selectedMovie.genre}}</h3>
+        <h4>Year: {{selectedMovie.year}}</h4>
+        <h4>Duration: {{selectedMovie.duration}}</h4>
+        <img ng-src="{{selectedMovie.file}}" >
+        <input type="button" value="Delete" ng-disabled="!selectedMovie" ng-click="deleteMovie(selectedMovie)" />
+        <input type="button" value="Edit" ng-disabled="!selectedMovie" ng-click="toggle()" />
+        <input type="button" value="Add new" ng-click="toggleI()" />
+        </form> 
+
+        <form class="editMovie"ng-submit="editMovie(selectedMovie)" ng-show="edit">
         <p>Edit movie</p><br>
-        <p>Name: </p><input type="text" value="{{selectedMovie.name}}" ng-model="selectedMovie.name"><br>
-        <p>Genre:</p><input type="text" value="{{selectedMovie.genre}}" ng-model="selectedMovie.genre"><br>
-        <p>Year: </p><input type="text" value="{{selectedMovie.year}}" ng-model="selectedMovie.year"><br>
-        <p>Duration</p><input type="text" value="{{selectedMovie.text}}" ng-model="selectedMovie.duration"><br>
+        <p>Name: </p><input type="text" value="{{selectedMovie.name}}" ng-model="selectedMovie.name">
+        <p>Genre:</p><input type="text" value="{{selectedMovie.genre}}" ng-model="selectedMovie.genre">
+        <p>Year: </p><input type="text" value="{{selectedMovie.year}}" ng-model="selectedMovie.year">
+        <p>Duration</p><input type="text" value="{{selectedMovie.text}}" ng-model="selectedMovie.duration">
+        <p>Ruote of image: </p><input type="text" value="{{selectedMovie.file}}" ng-model="selectedMovie.file">
         <input type="submit" value="Edit Movie">
+        <input type="button" value="Cancel" ng-click="cancelMovie()" />
         </form>
 
-       <form ng-submit="addMovie()" ng-show="add">
+       <form class="addMovie" ng-submit="addMovie()" ng-show="add">
         <p>Create the new movie</p><br>
-        <p>Name: </p><input type="text" ng-model="newMovie.name"><br>
-        <p>Genre:</p><input type="text" ng-model="newMovie.genre"><br>
-        <p>Year: </p><input type="text" ng-model="newMovie.year"><br>
-        <p>Duration</p><input type="text" ng-model="newMovie.duration"><br>
+        <p>Name: </p><input type="text" ng-model="newMovie.name" required><br>
+        <p>Genre:</p><input type="text" ng-model="newMovie.genre" required><br>
+        <p>Year: </p><input type="text" ng-model="newMovie.year" required><br>
+        <p>Duration: </p><input type="text" ng-model="newMovie.duration" required><br>
+        <p>Ruote of image: </p><input type="text" ng-model="newMovie.file" required><br>
         <input type="submit" value="Add Movie">
       </form>
     </div>  
-
-
-
-
 </body>
+
+<footer>
+<p>Copyright © Jonatan</p>
+</footer>
 
 
