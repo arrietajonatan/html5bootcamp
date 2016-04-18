@@ -43,6 +43,11 @@ movies.controller("maintController",function($scope,localStorageService){
 
 	    }
    
+	    //Mostrando datos del select
+	    $scope.selected=false;
+	    $scope.showSelected=function(){
+	    	$scope.selected=true;
+	    }
 
         //Agregando una pelicula
 		$scope.addMovie=function(){
@@ -50,15 +55,17 @@ movies.controller("maintController",function($scope,localStorageService){
 			$scope.newMovie = {};	
 			localStorageService.set("angular-movies",$scope.movies);
 		    $scope.add=false;
+		    alert('The movie has been added');
 	     }
-       //Borrando y reseteando
+         //Borrando y reseteando
 		$scope.deleteMovie = function(movie){
         var index = $scope.movies.indexOf(movie);
         if(index == -1) return;
         $scope.movies.splice(index,1);
         localStorageService.set("angular-movies",$scope.movies);
+        alert('The movie has been deleted');
         }
-        //Editando una pelicula
+        
         //Mostrar el editar
         $scope.add=false;
         $scope.edit=false;
@@ -71,9 +78,14 @@ movies.controller("maintController",function($scope,localStorageService){
         $scope.add = !$scope.add;
         $scope.edit=false;
         }
-        
-        //no olvidar agregar el FALSE para cuando se ponga aditar para que se cierre la ventana
 
-
-
+        //Editando una pelicula        
+  	    $scope.editMovie = function(movie){
+        var index = $scope.movies.indexOf(movie);
+        var modif = $scope.movies[index];	    	
+        modif = $scope.movie;
+	    localStorageService.set("angular-movies",$scope.movies);
+	    $scope.edit=false;
+	    alert('The movie has been edited');
+	    }
 });

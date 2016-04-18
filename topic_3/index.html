@@ -14,25 +14,26 @@
 <body ng-controller="maintController">
 	  <h1>My favourite movies</h1>
 
-   <select ng-model="selectedMovie" ng-options="movie.name for movie in movies">
+   <select ng-model="selectedMovie" ng-options="movie.name for movie in movies" ng-click="showSelected()">
     </select>
 
-    <div>
+    <div ng-show="selected">
     <h1>You selected: {{selectedMovie.name}} </h1>
     <h2>Genre: {{selectedMovie.genre}}</h2>
     <h3>Year: {{selectedMovie.year}}</h3>
     <h3>Duration: {{selectedMovie.duration}}</h3>
-     <input type="button" value="Delete" ng-click="deleteMovie(selectedMovie)" />
-     <input type="button" value="Edit" ng-click="toggle()" />
+     <input type="button" value="Delete" ng-disabled="!selectedMovie" ng-click="deleteMovie(selectedMovie)" />
+     <input type="button" value="Edit" ng-disabled="!selectedMovie" ng-click="toggle()" />
      <input type="button" value="Add new" ng-click="toggleI()" />
-     <section ng-show="edit">
-      <p>Add the new data</p><br>
-   <!--   <p>Name: </p><input type="text" ng-model="edit(selectedMovie.name)"><br>
-      <p>Genre:</p><input type="text" ng-model="edit(selectedMovie.genre)"><br>
-      <p>Year: </p><input type="text" ng-model="edit(selectedMovie.year)"><br>
-      <p>Duration</p><input type="text" ng-model="edit(selectedMovie.duration)"><br>
-    -->
-     </section>
+
+        <form ng-submit="editMovie(selectedMovie)" ng-show="edit">
+        <p>Edit movie</p><br>
+        <p>Name: </p><input type="text" value="{{selectedMovie.name}}" ng-model="selectedMovie.name"><br>
+        <p>Genre:</p><input type="text" value="{{selectedMovie.genre}}" ng-model="selectedMovie.genre"><br>
+        <p>Year: </p><input type="text" value="{{selectedMovie.year}}" ng-model="selectedMovie.year"><br>
+        <p>Duration</p><input type="text" value="{{selectedMovie.text}}" ng-model="selectedMovie.duration"><br>
+        <input type="submit" value="Edit Movie">
+        </form>
 
        <form ng-submit="addMovie()" ng-show="add">
         <p>Create the new movie</p><br>
