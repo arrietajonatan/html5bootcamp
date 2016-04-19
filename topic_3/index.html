@@ -12,43 +12,45 @@
   </head>
 
 <body ng-controller="maintController"  background="media/cinema.jpeg">
-	  <h1>My favourite movies</h1>
+	  <h1>Hoyts Cinema Online</h1>
 
    <select ng-model="selectedMovie" ng-options="movie.name for movie in movies" ng-click="showSelected()">
     </select>
 
     <div ng-show="selected">
 
-        <form class="show">
+        <form class="show" ng-show="show">
+        <img ng-src="media/{{selectedMovie.file}}" ><br>
         <h2>You selected: {{selectedMovie.name}} </h2>
         <h3>Genre: {{selectedMovie.genre}}</h3>
         <h4>Year: {{selectedMovie.year}}</h4>
         <h4>Duration: {{selectedMovie.duration}}</h4>
-        <img ng-src="{{selectedMovie.file}}" >
+
         <input type="button" value="Delete" ng-disabled="!selectedMovie" ng-click="deleteMovie(selectedMovie)" />
         <input type="button" value="Edit" ng-disabled="!selectedMovie" ng-click="toggle()" />
         <input type="button" value="Add new" ng-click="toggleI()" />
         </form> 
 
-        <form class="editMovie"ng-submit="editMovie(selectedMovie)" ng-show="edit">
-        <p>Edit movie</p><br>
-        <p>Name: </p><input type="text" value="{{selectedMovie.name}}" ng-model="selectedMovie.name">
-        <p>Genre:</p><input type="text" value="{{selectedMovie.genre}}" ng-model="selectedMovie.genre">
-        <p>Year: </p><input type="text" value="{{selectedMovie.year}}" ng-model="selectedMovie.year">
-        <p>Duration</p><input type="text" value="{{selectedMovie.text}}" ng-model="selectedMovie.duration">
-        <p>Ruote of image: </p><input type="text" value="{{selectedMovie.file}}" ng-model="selectedMovie.file">
-        <input type="submit" value="Edit Movie">
-        <input type="button" value="Cancel" ng-click="cancelMovie()" />
+        <form class="editMovie" ng-submit="editMovie(selectedMovie)" ng-show="edit">
+        <p class="spe">Edit movie</p><br>
+        <p>Name: </p><input class="mas" type="text" value="{{selectedMovie.name}}" ng-model="selectedMovie.name">
+        <p>Genre:</p><input class="mas" type="text" value="{{selectedMovie.genre}}" ng-model="selectedMovie.genre">
+        <p>Year: </p><input class="mas" type="text" value="{{selectedMovie.year}}" ng-model="selectedMovie.year">
+        <p>Duration</p><input class="mas" type="text" value="{{selectedMovie.text}}" ng-model="selectedMovie.duration">
+        <p>Route of image: </p><input class="mas" type="text" value="{{selectedMovie.file}}" ng-model="selectedMovie.file"><br>
+        <input class="acom" type="submit" value="Edit Movie">
+        <input class="acom" type="button" value="Cancel" ng-click="cancel()" />
         </form>
 
        <form class="addMovie" ng-submit="addMovie()" ng-show="add">
-        <p>Create the new movie</p><br>
-        <p>Name: </p><input type="text" ng-model="newMovie.name" required><br>
-        <p>Genre:</p><input type="text" ng-model="newMovie.genre" required><br>
-        <p>Year: </p><input type="text" ng-model="newMovie.year" required><br>
-        <p>Duration: </p><input type="text" ng-model="newMovie.duration" required><br>
-        <p>Ruote of image: </p><input type="text" ng-model="newMovie.file" required><br>
-        <input type="submit" value="Add Movie">
+        <p class="spe">Create the new movie</p><br>
+        <p>Name: </p><input class="mas"type="text" ng-model="newMovie.name" required>
+        <p>Genre:</p><input class="mas"type="text" ng-model="newMovie.genre" required>
+        <p>Year: </p><input class="mas"type="text" ng-model="newMovie.year" required>
+        <p>Duration: </p><input class="mas" type="text" ng-model="newMovie.duration" required>
+        <p>Route of image: </p><input class="mas" type="text" ng-model="newMovie.file" required><br>
+        <input class="acom" type="submit" value="Add Movie">
+        <input class="acom"type="button" value="Cancel" ng-click="cancel()" />
       </form>
     </div>  
 </body>

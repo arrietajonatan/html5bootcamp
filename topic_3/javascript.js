@@ -1,8 +1,7 @@
 var movies = angular.module("movies", ["LocalStorageModule"])
 
 movies.controller("maintController",function($scope,localStorageService){
-	   
-	    $scope.newMovie = {};  
+	   //Si hay una lista creada, si no...
 	    if(localStorageService.get("angular-movies")){
 	    	$scope.movies = localStorageService.get("angular-movies");
 	    }
@@ -45,7 +44,6 @@ movies.controller("maintController",function($scope,localStorageService){
 				file: "media/piano.jpg"
 			}
 		];
-
 	    }
    	   
 	    //Mostrando datos del select
@@ -61,34 +59,42 @@ movies.controller("maintController",function($scope,localStorageService){
 			localStorageService.set("angular-movies",$scope.movies);
 		    $scope.add=false;
 		    alert('The movie has been added');
+		    $scope.show = true;
  	     }
+
          //Borrando y reseteando
 		$scope.deleteMovie = function(movie){
         var index = $scope.movies.indexOf(movie);
         	if(index == -1) return;
         	$scope.movies.splice(index,1);
         	 localStorageService.set("angular-movies",$scope.movies);
-       		 alert('The movie has been deleted');
+       		 alert('The movie has been deleted');     		 
+ 	         $scope.selected=false;
         }
         
         //Mostrar el editar
+        $scope.show=true;
         $scope.add=false;
         $scope.edit=false;
         $scope.toggle=function(){
         $scope.edit = !$scope.edit;
         $scope.add=false;
+        $scope.show=false;
         }
 
         $scope.toggleI=function(){
         $scope.add = !$scope.add;
         $scope.edit=false;
+        $scope.show=false;
         }
 
         //Cancelar
-        $scope.cancelMovie=function(){
+        $scope.cancel=function(){
         $scope.add=false;
         $scope.edit=false;
+        $scope.show=true;
         }
+
 
         //Editando una pelicula        
   	    $scope.editMovie = function(movie){
@@ -97,7 +103,8 @@ movies.controller("maintController",function($scope,localStorageService){
         modif = $scope.movie;
 	    localStorageService.set("angular-movies",$scope.movies);
 	    alert('The movie has been edited');
-	    $scope.edit=false;
 	    $scope.show = true;
+	    $scope.edit=false;
 	    }
+
 });
